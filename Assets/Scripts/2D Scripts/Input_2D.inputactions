@@ -1,0 +1,77 @@
+{
+    "version": 1,
+    "name": "Input_2D",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "baabea51-2196-47b6-8d45-a85d2b28e26d",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "fd205a65-6bb1-4bbc-b047-d5d76a0b673a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "c4618c2b-3c35-4445-a64f-f7cdde9dd165",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "057b35c4-1b21-4dc7-a990-e7f82d7cf8ca",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ff74494c-63e5-4393-9860-ac1f79274227",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3651e45b-7dc5-433a-baac-570c8f165ddf",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d21e9e44-7c51-4775-8f6f-eb325b4c682d",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
