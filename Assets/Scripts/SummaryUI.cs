@@ -3,17 +3,11 @@ using TMPro;
 
 public class SummaryUI : MonoBehaviour
 {
-    private void OnEnable()
-    {
-        AudioManager.Instance?.PlaySummary();
-    }    
-    
     [SerializeField] private TMP_Text valueText;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log("SummaryUI Start");
         
     }
 
@@ -52,6 +46,4 @@ public class SummaryUI : MonoBehaviour
 
         valueText.text = summary;
     }
-
-    
 }

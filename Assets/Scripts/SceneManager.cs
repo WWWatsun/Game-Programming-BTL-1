@@ -39,7 +39,6 @@ public class SceneManager : MonoBehaviour
     public void LoadMenuScreen()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(startScreenIndex);
-        Debug.Log("LoadMenuScreen clicked");
     }
 
     public void LoadFPSScreen()

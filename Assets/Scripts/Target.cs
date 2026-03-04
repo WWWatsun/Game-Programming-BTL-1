@@ -34,19 +34,9 @@ public class Target : MonoBehaviour
         this.timeToLive = timeToLive;
     }
 
-    // public void TargetHit()
-    // {
-    //     Debug.Log("Target hit!");
-    //     timeToLive = 0;
-    //     isHit = true;
-    //     GameManager.Instance.RegisterHit(reactionTime);
-    // }
-    //chặn hit nếu không phải PLAYING - lỗi target bị hit khi đang PAUSED hoặc RESULTS
     public void TargetHit()
     {
-        if (GameManager.Instance == null) return;
-        if (GameManager.Instance.GetGameState() != GameManager.GameState.PLAYING) return;
-
+        Debug.Log("Target hit!");
         timeToLive = 0;
         isHit = true;
         GameManager.Instance.RegisterHit(reactionTime);
@@ -83,7 +73,7 @@ public class Target : MonoBehaviour
         if (!isHit && GameManager.Instance != null && GameManager.Instance.GetGameState() == GameManager.GameState.PLAYING)
         {
             GameManager.Instance.RegisterMiss();
-            // TargetBool.Instance.ResetTimeToLive(); // keep TTL progression harder over time
+            TargetBool.Instance.ResetTimeToLive();
         }
 
         // Give it back to the pool, or disable as a fallback.

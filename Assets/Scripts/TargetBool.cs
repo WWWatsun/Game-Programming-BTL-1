@@ -20,12 +20,6 @@ public class TargetBool : MonoBehaviour
     [SerializeField] private float minTargetTimeToLive = 0.1f;
     [SerializeField] private float maxTargetTimeToLive = 5f;
 
-    [Header("2D Spawn Settings")]
-    [SerializeField] private Camera spawnCamera;
-
-    public Target ActiveTarget { get; private set; }
-
-
     [SerializeField] private float minTargetSpawnDelay = 0.1f;
     [SerializeField] private float maxTargetSpawnDelay = 0.25f;
 
@@ -75,51 +69,21 @@ public class TargetBool : MonoBehaviour
     }
 
     // Called when an item is taken from the pool.
-    void OnGet(Target target)
-{
-    if (spawnCamera == null) spawnCamera = Camera.main;
-
-    // Estimate radius from sprite bounds (world units) so target doesn't clip screen edges.
-    float radius = 0.5f;
-    var sr = target.GetComponentInChildren<SpriteRenderer>();
-    if (sr != null) radius = Mathf.Max(sr.bounds.extents.x, sr.bounds.extents.y);
-
-    Vector3 pos = GetRandomVisiblePosition(radius);
-    target.transform.position = pos;
-
-    target.SetTimeToLive(timeToLive);
-    target.gameObject.SetActive(true);
-
-    ActiveTarget = target;
-}
-
-private Vector3 GetRandomVisiblePosition(float r)
-{
-    float z = 0f; // 2D scene z plane
-    Vector3 camPos = spawnCamera.transform.position;
-
-    float vertExtent = spawnCamera.orthographicSize;
-    float horzExtent = vertExtent * spawnCamera.aspect;
-
-    float minX = camPos.x - horzExtent + r;
-    float maxX = camPos.x + horzExtent - r;
-    float minY = camPos.y - vertExtent + r;
-    float maxY = camPos.y + vertExtent - r;
-
-    float x = Random.Range(minX, maxX);
-    float y = Random.Range(minY, maxY);
-
-    return new Vector3(x, y, z);
-}
-
+    private void OnGet(Target target)
+    {
+        target.transform.position = new Vector3(Random.Range(-maxTargetSpawnDistance, maxTargetSpawnDistance), 
+                                                Random.Range(minTargetSpawnHeight, maxTargetSpawnHeight), 
+                                                Random.Range(minTargetSpawnDistance, maxTargetSpawnDistance));
+        target.SetTimeToLive(timeToLive);
+        target.gameObject.SetActive(true);
+        
+    }
 
     // Called when an item is returned to the pool.
-    void OnRelease(Target target)
-{
-    if (ActiveTarget == target) ActiveTarget = null;
-    target.gameObject.SetActive(false);
-}
-
+    private void OnRelease(Target target)
+    {
+        target.gameObject.SetActive(false);
+    }
 
     // Called when the pool decides to destroy an item (e.g., above max size).
     private void OnDestroyItem(Target target)
