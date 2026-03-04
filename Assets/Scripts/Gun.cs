@@ -26,6 +26,8 @@ public class Gun : MonoBehaviour
     public void Fire()
     {
         Debug.DrawRay(raycastPoint.position, raycastPoint.forward, Color.red);
+
+        AudioManager.Instance?.PlayShoot();
         gunVisual.PlayFireAnimation();
         muzzleFlash.Play();
         if (Physics.Raycast(raycastPoint.position, raycastPoint.forward, out RaycastHit hitInfo, Mathf.Infinity, targetLayerMask))
