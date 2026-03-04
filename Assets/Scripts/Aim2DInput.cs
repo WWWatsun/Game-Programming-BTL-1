@@ -36,9 +36,9 @@ public class Aim2DInput : MonoBehaviour
 
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            AudioManager.Instance?.PlayShoot();
-
             Target t = TargetBool2D.Instance != null ? TargetBool2D.Instance.ActiveTarget : null;
+
+            AudioManager.Instance?.PlayShoot(); //sau khi có target rui bắn tiếng súng
 
             if (t == null || !t.gameObject.activeInHierarchy)
             {
