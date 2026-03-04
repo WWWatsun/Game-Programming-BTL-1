@@ -285,6 +285,7 @@ MonoBehaviour:
   maxTargetSpawnHeight: 5
   minTargetTimeToLive: 0.5
   maxTargetTimeToLive: 5
+  spawnCamera: {fileID: 0}
   minTargetSpawnDelay: 0.1
   maxTargetSpawnDelay: 0.25
 --- !u!4 &188117522
@@ -333,6 +334,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1939174197}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &211329928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 211329930}
+  - component: {fileID: 211329929}
+  m_Layer: 0
+  m_Name: AudioHook
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &211329929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211329928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d867b3cb15c4db741a224e49d22f6e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StopBgmOnStart
+--- !u!4 &211329930
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211329928}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 407.047, y: 226.3292, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &295041667 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 11623429500934436, guid: 85139c856d610364ba5d461c0e84a8b3, type: 3}
@@ -8082,3 +8127,4 @@ SceneRoots:
   - {fileID: 880941074}
   - {fileID: 1572878416}
   - {fileID: 971803909}
+  - {fileID: 211329930}

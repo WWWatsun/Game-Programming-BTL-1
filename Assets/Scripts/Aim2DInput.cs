@@ -17,9 +17,10 @@ public class Aim2DInput : MonoBehaviour
         var state = GameManager.Instance.GetGameState();
         bool playing = state == GameManager.GameState.PLAYING;
 
-        // Cursor behavior: hide only when playing, show otherwise (SummaryUI sẽ có chuột)
-        Cursor.visible = !playing;
-        Cursor.lockState = playing ? CursorLockMode.Confined : CursorLockMode.None;
+        // Để Cursor2DController xử lý cursor, nên Aim2DInput ko cần đụng vào cursor nữa
+        // // Cursor behavior: hide only when playing, show otherwise (SummaryUI sẽ có chuột)
+        // Cursor.visible = !playing;
+        // Cursor.lockState = playing ? CursorLockMode.Confined : CursorLockMode.None;
 
         // ESC pause vẫn cho phép bấm ở mọi state (trừ khi bạn muốn khác)
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
@@ -35,6 +36,8 @@ public class Aim2DInput : MonoBehaviour
 
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
+            AudioManager.Instance?.PlayShoot();
+
             Target t = TargetBool2D.Instance != null ? TargetBool2D.Instance.ActiveTarget : null;
 
             if (t == null || !t.gameObject.activeInHierarchy)

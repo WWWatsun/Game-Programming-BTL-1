@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
         // TargetBool.Instance.StartSpawning();
         // -> Chỉnh GameManager.cs để 2D dùng TargetBool2D, 3D vẫn dùng TargetBool
         if (TargetBool2D.Instance != null) TargetBool2D.Instance.StartSpawning();
-else if (TargetBool.Instance != null) TargetBool.Instance.StartSpawning();
+        else if (TargetBool.Instance != null) TargetBool.Instance.StartSpawning();
         currentTime = gameDuration;
         ResetGameStats();
 
