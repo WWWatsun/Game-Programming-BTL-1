@@ -559,8 +559,20 @@ PrefabInstance:
       value: Summary UI
       objectReference: {fileID: 0}
     - target: {fileID: 6716556858663601740, guid: 8900b345ecbc9fc418d3426a8e7aa2b1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716556858663601740, guid: 8900b345ecbc9fc418d3426a8e7aa2b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 473143824}
+    - target: {fileID: 6716556858663601740, guid: 8900b345ecbc9fc418d3426a8e7aa2b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMenuScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716556858663601740, guid: 8900b345ecbc9fc418d3426a8e7aa2b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneManager, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -719,7 +731,6 @@ MonoBehaviour:
   speedBonus: 50
   speedBonusThreshold: 1
   missPenalty: 50
-  whipPenalty: 10
 --- !u!4 &769897186
 Transform:
   m_ObjectHideFlags: 0
