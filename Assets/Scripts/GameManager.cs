@@ -81,14 +81,18 @@ public class GameManager : MonoBehaviour
         {
             float accuracy = hit + miss > 0 ? (float)hit / (hit + miss) * 100f : 0f;
             averageReactionTime = hit > 0 ? totalReactionTime / hit : -1f;
-            UIManager.Instance.ShowSummaryUI(score, hit, miss, whip, accuracy, highestCombo, averageReactionTime, bestReactionTime);
+            // fix lỗi 
+            if (UIManager.Instance != null)
+            {
+                UIManager.Instance.ShowSummaryUI(score, hit, miss, whip, accuracy, highestCombo, averageReactionTime, bestReactionTime);
+            }        
         }
         else if (currentState == GameState.SETTINGS)
         {
             UIManager.Instance.ShowSettingsUI();
         }
 
-        Time.timeScale = currentState == GameState.PLAYING ? 1f : 0f; // Pause the game when not in PLAYING state
+        Time.timeScale = currentState == GameState.PLAYING? 1f : 0f; // Pause the game when not in PLAYING state
     }
 
     // -------------
@@ -98,10 +102,17 @@ public class GameManager : MonoBehaviour
     private IEnumerator GameLoop()
     {
         Debug.Log("Starting Game");
-        Player.Instance.ResetPlayer();
-        Player.Instance.StartGame();
-        TargetBool.Instance.ResetTimeToLive();
-        TargetBool.Instance.StartSpawning();
+        // FPS-only: Scene 2D may not have Player.
+        if (Player.Instance != null)
+        {
+            Player.Instance.ResetPlayer();
+            Player.Instance.StartGame();
+        }
+        // TargetBool.Instance.ResetTimeToLive();
+        // TargetBool.Instance.StartSpawning();
+        // -> Chỉnh GameManager.cs để 2D dùng TargetBool2D, 3D vẫn dùng TargetBool
+        if (TargetBool2D.Instance != null) TargetBool2D.Instance.StartSpawning();
+        else if (TargetBool.Instance != null) TargetBool.Instance.StartSpawning();
         currentTime = gameDuration;
         ResetGameStats();
 
@@ -109,8 +120,14 @@ public class GameManager : MonoBehaviour
 
         // End the game
         Debug.Log("Ending Game");
-        Player.Instance.EndGame();
-        TargetBool.Instance.StopSpawning();
+        if (Player.Instance != null)
+        {
+            Player.Instance.EndGame();
+        }
+        // TargetBool.Instance.StopSpawning();
+        // -> Chỉnh GameManager.cs để 2D dùng TargetBool2D, 3D vẫn dùng TargetBool
+        if (TargetBool2D.Instance != null) TargetBool2D.Instance.StopSpawning();
+        else if (TargetBool.Instance != null) TargetBool.Instance.StopSpawning();
         currentState = GameState.RESULTS;
         StopAllCoroutines();
     }
@@ -166,7 +183,10 @@ public class GameManager : MonoBehaviour
         if (currentState == GameState.PLAYING)
         {
             currentState = GameState.PAUSED;
+            if (Player.Instance != null)
+        {
             Player.Instance.EndGame();
+        }
         }
         else if (currentState == GameState.PAUSED)
         {
@@ -202,7 +222,12 @@ public class GameManager : MonoBehaviour
         }
 
         // Reduce time to live 
-        TargetBool.Instance.ReduceTimeToLive();
+        // Reduce time-to-live only for 3D spawner (TargetBool).
+        // 2D uses TargetBool2D difficulty by elapsed time, so NO touch TTL here.
+        if (TargetBool2D.Instance == null && TargetBool.Instance != null)
+        {
+            TargetBool.Instance.ReduceTimeToLive();
+        }    
     }
 
     public void RegisterMiss()
