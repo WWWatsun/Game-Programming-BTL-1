@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
             UIManager.Instance.ShowSettingsUI();
         }
 
-        Time.timeScale = currentState == GameState.PLAYING? 1f : 0f; // Pause the game when not in PLAYING state
+        Time.timeScale = currentState == GameState.PLAYING ? 1f : 0f; // Pause the game when not in PLAYING state
     }
 
     // -------------
