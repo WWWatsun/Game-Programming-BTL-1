@@ -473,7 +473,15 @@ PrefabInstance:
     - target: {fileID: 1501608955494244869, guid: 8900b345ecbc9fc418d3426a8e7aa2b1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 769897185}
+      objectReference: {fileID: 769897187}
+    - target: {fileID: 1501608955494244869, guid: 8900b345ecbc9fc418d3426a8e7aa2b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501608955494244869, guid: 8900b345ecbc9fc418d3426a8e7aa2b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager2D, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3513621960673402838, guid: 8900b345ecbc9fc418d3426a8e7aa2b1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -690,7 +698,7 @@ PrefabInstance:
     - target: {fileID: 5022585951301181182, guid: 578530c035333494ab2921f5e4010afe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 769897185}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -705,32 +713,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 769897186}
-  - component: {fileID: 769897185}
+  - component: {fileID: 769897187}
   m_Layer: 0
-  m_Name: Game Manager
+  m_Name: Game Manager 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &769897185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769897184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c7fc5d240fdc72409165c99386fdc8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  gameDuration: 60
-  scoreOnHit: 100
-  comboBonus: 30
-  speedBonus: 50
-  speedBonusThreshold: 1
-  missPenalty: 50
 --- !u!4 &769897186
 Transform:
   m_ObjectHideFlags: 0
@@ -746,6 +736,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &769897187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769897184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d70fce7aba79cc4691c371da7b15161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager2D
+  gameDuration: 60
+  scoreOnHit: 100
+  comboBonus: 30
+  speedBonus: 50
+  speedBonusThreshold: 1
+  missPenalty: 50
 --- !u!1 &787285713
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,7 +1214,15 @@ PrefabInstance:
     - target: {fileID: 521349930683451223, guid: 279b5f896a0d08b47bfcdea779c3c156, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 769897185}
+      objectReference: {fileID: 769897187}
+    - target: {fileID: 521349930683451223, guid: 279b5f896a0d08b47bfcdea779c3c156, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenSettings
+      objectReference: {fileID: 0}
+    - target: {fileID: 521349930683451223, guid: 279b5f896a0d08b47bfcdea779c3c156, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager2D, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4361877663689631656, guid: 279b5f896a0d08b47bfcdea779c3c156, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1290,7 +1306,15 @@ PrefabInstance:
     - target: {fileID: 5091427022434733415, guid: 279b5f896a0d08b47bfcdea779c3c156, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 769897185}
+      objectReference: {fileID: 769897187}
+    - target: {fileID: 5091427022434733415, guid: 279b5f896a0d08b47bfcdea779c3c156, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091427022434733415, guid: 279b5f896a0d08b47bfcdea779c3c156, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager2D, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5580258135029804862, guid: 279b5f896a0d08b47bfcdea779c3c156, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1528,7 +1552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29259ae701dfdb3459c67dd98fc8863e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetBool2D
-  targetPrefab: {fileID: 5489995806745000483, guid: 76dafdf12df25fe488f2bd7bc0a6f9f2, type: 3}
+  targetPrefab: {fileID: -666014197267268542, guid: 76dafdf12df25fe488f2bd7bc0a6f9f2, type: 3}
   spawnCamera: {fileID: 907659041}
   defaultCapacity: 10
   maxSize: 30
@@ -1704,11 +1728,23 @@ PrefabInstance:
     - target: {fileID: 2026160491759251895, guid: e40b6263e77764a47840300be736d118, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 473143824}
+    - target: {fileID: 2026160491759251895, guid: e40b6263e77764a47840300be736d118, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMenuScreen
       objectReference: {fileID: 0}
     - target: {fileID: 6743888609331785552, guid: e40b6263e77764a47840300be736d118, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 769897185}
+      objectReference: {fileID: 769897187}
+    - target: {fileID: 6743888609331785552, guid: e40b6263e77764a47840300be736d118, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PauseGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6743888609331785552, guid: e40b6263e77764a47840300be736d118, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager2D, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6778514145650558060, guid: e40b6263e77764a47840300be736d118, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1792,7 +1828,15 @@ PrefabInstance:
     - target: {fileID: 8032712071622279052, guid: e40b6263e77764a47840300be736d118, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 769897185}
+      objectReference: {fileID: 769897187}
+    - target: {fileID: 8032712071622279052, guid: e40b6263e77764a47840300be736d118, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenSettings
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032712071622279052, guid: e40b6263e77764a47840300be736d118, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager2D, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

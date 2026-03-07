@@ -7,7 +7,7 @@ public class TargetBool2D : MonoBehaviour
     public static TargetBool2D Instance { get; private set; }
 
     [Header("References")]
-    [SerializeField] private Target targetPrefab;
+    [SerializeField] private Target2D targetPrefab;
     [SerializeField] private Camera spawnCamera;
 
     [Header("Pooling")]
@@ -21,16 +21,16 @@ public class TargetBool2D : MonoBehaviour
     [SerializeField] private float ttlStart = 1.35f; // early game
     [SerializeField] private float ttlEnd = 0.65f;   // late game
 
-    // Target shrinks smoothly over time
+    // Target2D shrinks smoothly over time
     [SerializeField] private float scaleStart = 1.00f;
     [SerializeField] private float scaleEnd = 0.70f;
 
     [Header("Spawn")]
     [SerializeField] private float spawnDelayAfterDisappear = 0.05f; // small breathing room
 
-    public Target ActiveTarget { get; private set; }
+    public Target2D ActiveTarget { get; private set; }
 
-    private IObjectPool<Target> pool;
+    private IObjectPool<Target2D> pool;
     private Coroutine spawnRoutine;
     private float elapsed; // seconds since PLAYING started
 
@@ -45,7 +45,7 @@ public class TargetBool2D : MonoBehaviour
 
         if (spawnCamera == null) spawnCamera = Camera.main;
 
-        pool = new ObjectPool<Target>(
+        pool = new ObjectPool<Target2D>(
             createFunc: CreateTarget,
             actionOnGet: OnGet,
             actionOnRelease: OnRelease,
@@ -58,12 +58,12 @@ public class TargetBool2D : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance == null) return;
-        if (GameManager.Instance.GetGameState() == GameManager.GameState.PLAYING)
+        if (GameManager2D.Instance == null) return;
+        if (GameManager2D.Instance.GetGameState() == GameManager2D.GameState.PLAYING)
             elapsed += Time.deltaTime;
     }
 
-    private Target CreateTarget()
+    private Target2D CreateTarget()
     {
         var t = Instantiate(targetPrefab);
         t.SetPool(pool);
@@ -71,12 +71,12 @@ public class TargetBool2D : MonoBehaviour
         return t;
     }
 
-    private void OnDestroyTarget(Target t)
+    private void OnDestroyTarget(Target2D t)
     {
         if (t != null) Destroy(t.gameObject);
     }
 
-    private void OnGet(Target t)
+    private void OnGet(Target2D t)
     {
         if (spawnCamera == null) spawnCamera = Camera.main;
 
@@ -99,13 +99,13 @@ public class TargetBool2D : MonoBehaviour
         ActiveTarget = t;
     }
 
-    private void OnRelease(Target t)
+    private void OnRelease(Target2D t)
     {
         if (ActiveTarget == t) ActiveTarget = null;
         if (t != null) t.gameObject.SetActive(false);
     }
 
-    private float GetRadiusWorld(Target t)
+    private float GetRadiusWorld(Target2D t)
     {
         float radius = 0.5f;
         var sr = t.GetComponentInChildren<SpriteRenderer>();
@@ -147,7 +147,7 @@ public class TargetBool2D : MonoBehaviour
             spawnRoutine = null;
         }
 
-        // clean up active target
+        // clean up active Target2D
         if (ActiveTarget != null)
         {
             pool.Release(ActiveTarget);
@@ -158,10 +158,10 @@ public class TargetBool2D : MonoBehaviour
     private IEnumerator SpawnLoop()
     {
         // wait until PLAYING
-        while (GameManager.Instance == null || GameManager.Instance.GetGameState() != GameManager.GameState.PLAYING)
+        while (GameManager2D.Instance == null || GameManager2D.Instance.GetGameState() != GameManager2D.GameState.PLAYING)
             yield return null;
 
-        while (GameManager.Instance != null && GameManager.Instance.GetGameState() == GameManager.GameState.PLAYING)
+        while (GameManager2D.Instance != null && GameManager2D.Instance.GetGameState() == GameManager2D.GameState.PLAYING)
         {
             // spawn only when none active
             if (ActiveTarget == null)
@@ -173,7 +173,6 @@ public class TargetBool2D : MonoBehaviour
         }
     }
 
-    // Optional: call this after hit/miss if bạn muốn thêm "delay" giữa 2 target. ?
     public void RequestRespawnWithDelay()
     {
         if (spawnRoutine != null) StartCoroutine(RespawnDelayRoutine());
@@ -183,8 +182,8 @@ public class TargetBool2D : MonoBehaviour
     {
         yield return new WaitForSeconds(spawnDelayAfterDisappear);
 
-        if (GameManager.Instance != null &&
-            GameManager.Instance.GetGameState() == GameManager.GameState.PLAYING &&
+        if (GameManager2D.Instance != null &&
+            GameManager2D.Instance.GetGameState() == GameManager2D.GameState.PLAYING &&
             ActiveTarget == null)
         {
             pool.Get();

@@ -6,22 +6,22 @@ public class Cursor2DController : MonoBehaviour
     [SerializeField] private Vector2 hotspot = new Vector2(16, 16);
     [SerializeField] private CursorMode cursorMode = CursorMode.Auto;
 
-    private GameManager.GameState lastState = (GameManager.GameState)(-1);
+    private GameManager2D.GameState lastState = (GameManager2D.GameState)(-1);
 
     private void Update()
     {
-        if (GameManager.Instance == null) return;
+        if (GameManager2D.Instance == null) return;
 
-        var state = GameManager.Instance.GetGameState();
+        var state = GameManager2D.Instance.GetGameState();
         if (state == lastState) return;   // ✅ không đổi state thì không đụng cursor
 
         lastState = state;
         ApplyForState(state);
     }
 
-    private void ApplyForState(GameManager.GameState state)
+    private void ApplyForState(GameManager2D.GameState state)
     {
-        bool playing = state == GameManager.GameState.PLAYING;
+        bool playing = state == GameManager2D.GameState.PLAYING;
 
         if (playing)
         {

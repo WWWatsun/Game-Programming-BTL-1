@@ -12,10 +12,10 @@ public class Aim2DInput : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance == null) return;
+        if (GameManager2D.Instance == null) return;
 
-        var state = GameManager.Instance.GetGameState();
-        bool playing = state == GameManager.GameState.PLAYING;
+        var state = GameManager2D.Instance.GetGameState();
+        bool playing = state == GameManager2D.GameState.PLAYING;
 
         // Để Cursor2DController xử lý cursor, nên Aim2DInput ko cần đụng vào cursor nữa
         // // Cursor behavior: hide only when playing, show otherwise (SummaryUI sẽ có chuột)
@@ -25,7 +25,7 @@ public class Aim2DInput : MonoBehaviour
         // ESC pause vẫn cho phép bấm ở mọi state (trừ khi bạn muốn khác)
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            GameManager.Instance.PauseGame();
+            GameManager2D.Instance.PauseGame();
             return;
         }
 
@@ -36,13 +36,13 @@ public class Aim2DInput : MonoBehaviour
 
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            Target t = TargetBool2D.Instance != null ? TargetBool2D.Instance.ActiveTarget : null;
+            Target2D t = TargetBool2D.Instance != null ? TargetBool2D.Instance.ActiveTarget : null;
 
             AudioManager.Instance?.PlayShoot(); //sau khi có target rui bắn tiếng súng
 
             if (t == null || !t.gameObject.activeInHierarchy)
             {
-                GameManager.Instance.RegisterMiss();
+                GameManager2D.Instance.RegisterMiss();
                 TargetBool2D.Instance?.RequestRespawnWithDelay();
                 return;
             }
@@ -60,7 +60,7 @@ public class Aim2DInput : MonoBehaviour
             bool hit = Vector2.Distance(clickPos, targetPos) <= radius;
 
             if (hit) t.TargetHit();
-            else GameManager.Instance.RegisterMiss();
+            else GameManager2D.Instance.RegisterMiss();
 
             TargetBool2D.Instance?.RequestRespawnWithDelay();
         }
