@@ -64,6 +64,6 @@ Both 3D and 2D modes run on a state machine (`START`, `PLAYING`, `PAUSED`, `RESU
 ## 📦 Asset Sources
 
 * **3D Gun Model:** https://skfb.ly/oypzZ
-* **Sprites & Art Assets:** https://toppng.com/show_download/226806/free-png-target-bullseye-transparent-target-bullseye-archery-target-hd(bullseye-target-nobg.png); https://www.hiclipart.com/free-transparent-background-png-clipart-jkmzy(playing-cursor.png); https://www.istockphoto.com/vi/vec-to/n%E1%BB%81n-tr%C3%B2-ch%C6%A1i-ho%E1%BA%A1t-h%C3%ACnh-gm483979926-70949723(background.jpg)
-* **Sound Effects (SFX):** https://youtu.be/BE553dM-YtI?si=773tzOzW19AXUgC5(Summary SFX); https://youtu.be/nUsHboYC5zc?si=j_pKgvgdwahNNsgO(Click SFX); https://youtu.be/kYN0BL1fZrQ?si=DXuEE455mvM5oQQ_(Shoot SFX).
+* **Sprites & Art Assets:** https://toppng.com/show_download/226806/free-png-target-bullseye-transparent-target-bullseye-archery-target-hd (bullseye-target-nobg.png); https://www.hiclipart.com/free-transparent-background-png-clipart-jkmzy (playing-cursor.png); https://www.istockphoto.com/vi/vec-to/n%E1%BB%81n-tr%C3%B2-ch%C6%A1i-ho%E1%BA%A1t-h%C3%ACnh-gm483979926-70949723 (background.jpg)
+* **Sound Effects (SFX):** https://youtu.be/BE553dM-YtI?si=773tzOzW19AXUgC5 (Summary SFX); https://youtu.be/nUsHboYC5zc?si=j_pKgvgdwahNNsgO (Click SFX); https://youtu.be/kYN0BL1fZrQ?si=DXuEE455mvM5oQQ_ (Shoot SFX).
 * **Background Music:** https://youtu.be/yyjUmv1gJEg?si=-Y7Fy1sdrnelhmUH.
